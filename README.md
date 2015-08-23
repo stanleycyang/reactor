@@ -30,3 +30,12 @@
   	$ webpack-dev-server --hot --inline [or webpack to build]
 
 Your `reactor` setup should now be working on `localhost:8080/webpack-dev-server`!
+
+**Alternatively**
+
+You can also set in your npm scripts
+
+>"start": "webpack-dev-server --hot --inline",
+>"build": "webpack"
+
+Which will run it on `npm start` and `npm run build`, respectively.
