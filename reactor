@@ -13,7 +13,7 @@ mkdir -p $APP $APP/client/js/actions $APP/client/js/components $APP/client/js/co
 cd $APP
 
 # Create the files
-touch README.md webpack.config.js client/index.html client/app.js
+touch README.md webpack.config.js client/index.html client/js/app.js
 
 cat > client/index.html <<- EOM
 <!DOCTYPE html>
