@@ -33,10 +33,8 @@ cat > client/index.html <<- EOM
 EOM
 
 cat > webpack.config.js <<- EOM
-
 var path = require('path');
 var webpack = require('webpack');
-var ExtractTectPlugin = require('extract-text-webpack-plugin');
 
 module.exports = {
     context: __dirname,
