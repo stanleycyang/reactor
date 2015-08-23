@@ -6,10 +6,10 @@
 
 ###Features
 
-`webpack`
-`react`
-`flux`
-`react-router`
+- `webpack`
+- `react`
+- `flux`
+- `react-router`
 
 ###Installation for Macs
 
