@@ -25,7 +25,7 @@ cat > client/index.html <<- EOM
   </head>
   <body>
       <div class='container'>
-        <div id='$TITLE'>
+        <div id='load-react'>
         </div>
       </div>
   </body>
