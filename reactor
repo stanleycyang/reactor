@@ -92,6 +92,6 @@ npm init -f
 npm i -S flux keymirror react react-router
 
 # Install dev dependencies
-npm i -SD babel-core babel-loader file-loader react-hot-loader webpack webpack-dev-server
+npm i -SD babel-core babel-loader file-loader react-hot-loader webpack webpack-dev-server style-loader css-loader
 
 echo "$APP initialized!"
