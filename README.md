@@ -4,6 +4,11 @@
 
 >To automate the setup an React + Flux + ES2015 application
 
+###Dependencies
+
+> nodeJS
+> node package manager (npm)
+
 ###Features
 
 - `webpack`
