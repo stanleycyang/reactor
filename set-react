@@ -1,0 +1,99 @@
+#! /bin/bash
+
+if [ -z $1 ]; then
+  APP='react_boilerplate'
+else
+  APP=$1
+fi
+
+# Create my app structure
+mkdir -p $APP $APP/client/js/actions $APP/client/js/components $APP/client/js/constants $APP/client/js/dispatcher $APP/client/js/stores $APP/public
+
+# Go into the app
+cd $APP
+
+# Create the files
+touch README.md webpack.config.js client/index.html client/app.js
+
+cat > client/index.html <<- EOM
+<!DOCTYPE html>
+<html lang='en'>
+  <head>
+    <meta charset='UTF-8'>
+    <title>$TITLE</title>
+    <script src='app.js' defer></script>
+  </head>
+  <body>
+      <div class='container'>
+        <div id='$TITLE'>
+        </div>
+      </div>
+  </body>
+</html>
+EOM
+
+cat > webpack.config.js <<- EOM
+
+var path = require('path');
+var webpack = require('webpack');
+var ExtractTectPlugin = require('extract-text-webpack-plugin');
+
+module.exports = {
+    context: __dirname,
+    entry: {
+      javascript: './client/js/app.js',
+      html: './client/index.html'
+    },
+    output: {
+        filename: 'app.js',
+        path: path.join(__dirname, 'public')
+    },
+    module: {
+        loaders: [
+            {
+                test: /\.js$/,
+                exclude: /node_modules/,
+                loaders: ['react-hot', 'babel-loader']
+            },
+            {
+                test: /.html$/,
+                loader: 'file?name=[name].[ext]'
+            },
+            {
+                test: /.css$/, loader: 'style-loader!css-loader'
+            }
+        ]
+    },
+    plugins: [
+        new webpack.NoErrorsPlugin()
+    ]
+}
+
+
+EOM
+
+# Create the gitignore
+echo "node_modules" >> .gitignore
+
+echo "Created $APP"
+echo "Created $APP/.gitignore"
+echo "Created ${APP}/README.md"
+echo "Created ${APP}/webpack.config.js"
+echo "Created ${APP}/client/index.html"
+echo "Created ${APP}/client/app.js"
+echo "Created ${APP}/client/js/dispatcher/"
+echo "Created ${APP}/client/js/actions/"
+echo "Created ${APP}/client/js/components/"
+echo "Created ${APP}/client/js/constants/"
+echo "Created ${APP}/client/js/stores/"
+echo "Created ${APP}/public/"
+
+npm init -f
+
+# Install dependencies
+npm i -S flux keymirror react react-router
+
+# Install dev dependencies
+npm i -SD babel-core babel-loader file-loader react-hot-loader webpack webpack-dev-server
+
+echo "$APP initialized!"
